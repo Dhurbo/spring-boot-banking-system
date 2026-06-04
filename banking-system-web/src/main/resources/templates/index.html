@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking System</title>
+</head>
+<body>
+<h1>Banking System</h1>
+
+<p>Account Number: <span th:text="${account.accountNumber}"></span></p>
+<p>Balance: $<span th:text="${account.balance}"></span></p>
+
+<h2>Actions</h2>
+<form th:action="@{/deposit}" method="post">
+    <label for="amount">Deposit Amount:</label>
+    <input type="number" name="amount" id="amount" required>
+    <button type="submit">Deposit</button>
+</form>
+
+<form th:action="@{/withdraw}" method="post">
+    <label for="amount">Withdraw Amount:</label>
+    <input type="number" name="amount" id="amount" required>
+    <button type="submit">Withdraw</button>
+</form>
+
+<h2>Switch Account</h2>
+<form th:action="@{/switchAccount}" method="post">
+    <label for="accountNumber">Account Number:</label>
+    <select name="accountNumber" id="accountNumber">
+        <option value="123456">Account 123456</option>
+        <option value="789012">Account 789012</option>
+    </select>
+    <button type="submit">Switch Account</button>
+</form>
+
+</body>
+</html>
